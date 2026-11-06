@@ -4,56 +4,174 @@
   "title": "ARTEFAKT-LAB Update Catalog v1",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "catalogVersion", "generatedAt", "issuer", "apps"],
+  "required": [
+    "schemaVersion",
+    "catalogVersion",
+    "generatedAt",
+    "issuer",
+    "apps"
+  ],
   "properties": {
-    "schemaVersion": { "const": 1 },
-    "catalogVersion": { "type": "integer", "minimum": 1 },
-    "generatedAt": { "type": "string", "format": "date-time" },
-    "issuer": { "const": "ARTEFAKT-LAB" },
+    "schemaVersion": {
+      "const": 1
+    },
+    "catalogVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "issuer": {
+      "const": "ARTEFAKT-LAB"
+    },
     "apps": {
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["appId", "name", "platform", "channel", "version", "build", "publishedAt", "artifacts"],
+        "required": [
+          "appId",
+          "name",
+          "platform",
+          "channel",
+          "version",
+          "build",
+          "publishedAt",
+          "artifacts"
+        ],
         "properties": {
-          "appId": { "type": "string", "minLength": 3 },
-          "name": { "type": "string", "minLength": 1 },
-          "platform": { "enum": ["android", "web", "windows", "linux", "macos", "ios"] },
-          "channel": { "enum": ["stable", "beta", "experimental"] },
-          "version": { "type": "string", "minLength": 1 },
-          "build": { "type": ["string", "integer"] },
-          "minimumUpdaterVersion": { "type": "string" },
-          "minimumOsVersion": { "type": "string" },
-          "publishedAt": { "type": "string", "format": "date-time" },
-          "releaseNotesUrl": { "type": "string", "format": "uri" },
-          "mandatory": { "type": "boolean", "default": false },
+          "appId": {
+            "type": "string",
+            "minLength": 3
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "platform": {
+            "enum": [
+              "android",
+              "web",
+              "windows",
+              "linux",
+              "macos",
+              "ios"
+            ]
+          },
+          "channel": {
+            "enum": [
+              "stable",
+              "beta",
+              "experimental"
+            ]
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "build": {
+            "type": [
+              "string",
+              "integer"
+            ]
+          },
+          "minimumUpdaterVersion": {
+            "type": "string"
+          },
+          "minimumOsVersion": {
+            "type": "string"
+          },
+          "publishedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "releaseNotesUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "mandatory": {
+            "type": "boolean",
+            "default": false
+          },
           "rollout": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "percentage": { "type": "integer", "minimum": 0, "maximum": 100 },
-              "startsAt": { "type": "string", "format": "date-time" },
-              "endsAt": { "type": "string", "format": "date-time" }
+              "percentage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "startsAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "endsAt": {
+                "type": "string",
+                "format": "date-time"
+              }
             }
           },
-          "revokedBuilds": { "type": "array", "items": { "type": ["string", "integer"] } },
+          "revokedBuilds": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "integer"
+              ]
+            }
+          },
           "artifacts": {
             "type": "array",
             "minItems": 1,
             "items": {
               "type": "object",
               "additionalProperties": false,
-              "required": ["url", "sizeBytes", "sha256", "mediaType"],
+              "required": [
+                "url",
+                "sizeBytes",
+                "sha256",
+                "mediaType"
+              ],
               "properties": {
-                "url": { "type": "string", "format": "uri" },
-                "sizeBytes": { "type": "integer", "minimum": 1 },
-                "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
-                "mediaType": { "type": "string" },
-                "signingIdentity": { "type": "string" }
+                "url": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "sizeBytes": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-fA-F0-9]{64}$"
+                },
+                "mediaType": {
+                  "type": "string"
+                },
+                "signingIdentity": {
+                  "type": "string"
+                }
               }
             }
           }
+        }
+      }
+    },
+    "channelPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stable": {
+          "const": "production"
+        },
+        "beta": {
+          "const": "opt-in"
+        },
+        "experimental": {
+          "const": "opt-in"
         }
       }
     }

@@ -1,0 +1,32 @@
+name: Update catalog validation
+
+on:
+  pull_request:
+    paths:
+      - "updates/v1/**"
+      - ".github/workflows/update-catalog-validation.yml"
+  push:
+    branches: [main]
+    paths:
+      - "updates/v1/**"
+      - ".github/workflows/update-catalog-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate catalog against JSON Schema
+        run: |
+          npx --yes ajv-cli@5 validate \
+            -s updates/v1/catalog.schema.json \
+            -d updates/v1/catalog.json \
+            --spec=draft2020
+      - name: Check web updater JavaScript syntax
+        run: node --check updates/v1/web-update-client.js

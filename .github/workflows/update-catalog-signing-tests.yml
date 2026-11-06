@@ -1,0 +1,19 @@
+name: Signed Update Catalog tests
+on:
+  pull_request:
+    paths:
+      - 'updates/v1/**'
+      - '.github/workflows/update-catalog-signing-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  signing-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'cryptography>=42,<47'
+      - run: python -m unittest discover -s updates/v1/tools -p 'test_*.py' -v

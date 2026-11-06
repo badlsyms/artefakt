@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": 1,
+  "generatedAt": "REPLACE_AT_RELEASE",
+  "issuer": "ARTEFAKT-LAB",
+  "channelPolicy": {
+    "stable": "production",
+    "beta": "opt-in",
+    "experimental": "opt-in"
+  },
+  "apps": []
+}

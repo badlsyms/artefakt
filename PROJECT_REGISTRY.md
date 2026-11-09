@@ -1,8 +1,8 @@
 # ARTEFAKT-LAB — Centrální registr verzí
 
-> Poslední kontrola: 8. 11. 2026, 06:56 Europe/Prague.
+> Poslední kontrola: 9. 11. 2026, 06:11 Europe/Prague.
 > Rozsah: všech 10 repozitářů dostupných přes připojený GitHub účet; stránkování seznamu dokončeno.
-> Stav kontroly: ČÁSTEČNÁ — produkční web nebyl dostupný k ověření a pro soukromé repozitáře nebylo možné kompletně ověřit tagy/releases přes veřejný GitHub endpoint.
+> Stav kontroly: ČÁSTEČNÁ — všech 10 dostupných repozitářů bylo zkontrolováno; produkční webové adresy nebyly dostupné přes webový přístup. Tag refs a Releases byly zkontrolovány u 7 neprázdných repozitářů; 3 repozitáře zůstávají prázdné.
 > Tento registr rozlišuje zdrojový kód, úspěšné sestavení, podepsaný artefakt, testování a skutečné produkční nasazení. Neověřený údaj se nikdy nedoplňuje odhadem.
 
 ## Pravidla evidence
@@ -293,3 +293,83 @@ CI na draft PR větvi:
 4. U každé aplikace ověřit APK/AAB, package ID, versionCode, podpisový certifikát a SHA-256 přímo z binárního artefaktu.
 5. Doložit fyzické testy a skutečnou produkční instalaci.
 6. Teprve poté označit konkrétní verzi jako vydanou nebo produkční.
+
+
+## Kontrola — 9. 11. 2026, 06:11 Europe/Prague
+
+### Výsledek běhu
+
+**Nebyla zjištěna žádná nová vydaná verze ani nový produkční release proti kontrole 8. 11. 2026.** Změny od poslední kontroly se týkají pouze předchozího zápisu registru v repozitáři `badlsyms/artefakt`; ostatní zdrojové repozitáře nemají novější main commit. Všechny verze níže zůstávají oddělené od otevřených PR, preview a debug buildů.
+
+### Inventura repozitářů a poslední main commit
+
+Seznam repozitářů dostupných přes připojený GitHub účet byl načten znovu. Celkem 10:
+
+| Repozitář | Nejnovější commit / stav |
+|---|---|
+| `badlsyms/artefakt` | `ea70a943b782db5ce83acdcc3f5ff88baa65fd89`, 8. 11. 2026 06:00:29 UTC — předchozí aktualizace tohoto registru. [Commit](https://github.com/badlsyms/artefakt/commit/ea70a943b782db5ce83acdcc3f5ff88baa65fd89) |
+| `badlsyms/mv1-lab` | `8fdad22371061908329cca816d36ae3e6a8adac6`, 19. 10. 2026 04:51:09 UTC. [Commit](https://github.com/badlsyms/mv1-lab/commit/8fdad22371061908329cca816d36ae3e6a8adac6) |
+| `badlsyms/artefaktlab` | `26bc2efe334add10236e9c0d5b3194c88b0fdc30`, 6. 11. 2026 11:26:43 UTC — oprava instalace Android SDK v TRACE CI. [Commit](https://github.com/badlsyms/artefaktlab/commit/26bc2efe334add10236e9c0d5b3194c88b0fdc30) |
+| `badlsyms/Frekvencni_Terapie_App` | `6c9a1cccfcccc6607ed81f03fb80320bc89107c7`, 9. 9. 2025 21:40:01 UTC — Initial commit. [Commit](https://github.com/badlsyms/Frekvencni_Terapie_App/commit/6c9a1cccfcccc6607ed81f03fb80320bc89107c7) |
+| `badlsyms/occo-studio-v471-signed-20260814-235417` | `2ab626ff1e2b3d00f2e2d9a93e733fb5ea3e50e9`, 14. 8. 2026 21:54:17 UTC. [Commit](https://github.com/badlsyms/occo-studio-v471-signed-20260814-235417/commit/2ab626ff1e2b3d00f2e2d9a93e733fb5ea3e50e9) |
+| `badlsyms/occo-studio-v460-build-20260814-115954` | `6463ecf1d84fb72760b46266ef021d5824e775ba`, 14. 8. 2026 09:59:54 UTC. [Commit](https://github.com/badlsyms/occo-studio-v460-build-20260814-115954/commit/6463ecf1d84fb72760b46266ef021d5824e775ba) |
+| `badlsyms/occo-mv1-android-build-20260814-041816` | `5131617aec2202c159321723e550cd22b090b991`, 14. 8. 2026 02:18:15 UTC. [Commit](https://github.com/badlsyms/occo-mv1-android-build-20260814-041816/commit/5131617aec2202c159321723e550cd22b090b991) |
+| `badlsyms/QO` | Prázdný Git repozitář; API vrací HTTP 409 při výpisu commitů. |
+| `badlsyms/freqTherapy` | Prázdný Git repozitář; API vrací HTTP 409 při výpisu commitů. |
+| `badlsyms/freq` | Prázdný Git repozitář; API vrací HTTP 409 při výpisu commitů. |
+
+### Git tagy a GitHub Releases
+
+- GitHub Releases: prázdné seznamy v repozitářích `artefakt`, `artefaktlab`, `Frekvencni_Terapie_App`, `mv1-lab` a ve třech OCCO snapshot repozitářích.
+- Git tag refs: prázdné seznamy u všech 7 neprázdných repozitářů.
+- `QO`, `freqTherapy` a `freq` jsou prázdné repozitáře; nelze z nich doložit tag, release ani zdrojovou verzi.
+- Nebyl nalezen žádný nový tag ani GitHub Release. Stav zdrojových verzí z předchozího oddílu zůstává beze změny.
+
+### GitHub Actions — poslední ověřené běhy
+
+| Repozitář / aplikace | Poslední relevantní běh | Výsledek a interpretace |
+|---|---|---|
+| `artefaktlab` / TRACE | [Run 42210300364](https://github.com/badlsyms/artefaktlab/actions/runs/42210300364), main push, 6. 11. 2026 | Success. TRACE 1.3-ci / code 13; artefakt je debug-signed APK, ne produkční vydání. Předchozí run [42210196648](https://github.com/badlsyms/artefaktlab/actions/runs/42210196648) skončil failure. |
+| `artefaktlab` / MASTER LAB | [Run 42211163271](https://github.com/badlsyms/artefaktlab/actions/runs/42211163271), větev `masterlab-android-v2-1-build`, 6. 11. 2026 | Success, ale pouze Android signed-debug artefakt z ne-main větve. Není to důkaz produkčního vydání ani potvrzení vazby na MAJTELAB. |
+| `mv1-lab` / MV-1 + XYQ main | [Run 39200811788](https://github.com/badlsyms/mv1-lab/actions/runs/39200811788), main push, 19. 10. 2026 | Success. MV-1 1.65 a XYQ Android 0.14.0; workflow vytvořilo unsigned APK. Následující main run [39200598058](https://github.com/badlsyms/mv1-lab/actions/runs/39200598058) skončil failure, ale novější úspěšný main run 39200811788 zůstává platným posledním úspěšným sestavením. |
+| `mv1-lab` / XYQ update pilot | [Run 42209053542](https://github.com/badlsyms/mv1-lab/actions/runs/42209053542), PR větev, 6. 11. 2026 | Success po několika neúspěšných pokusech. Je to pouze CI kontrola draft PR #10; nevytvořila produkční distribuční release a pilot je vypnutý. |
+| `artefakt` / Update Center | [Run 42210773201](https://github.com/badlsyms/artefakt/actions/runs/42210773201) a [run 42210772928](https://github.com/badlsyms/artefakt/actions/runs/42210772928), PR větev, 6. 11. 2026 | Obě kontroly success: katalogové schéma/JS syntaxe a testy podpisu katalogu. PR #1 je stále draft; katalog má `apps: []` a není nasazen. |
+| `Frekvencni_Terapie_App` | [Run 41227310293](https://github.com/badlsyms/Frekvencni_Terapie_App/actions/runs/41227310293), PR větev, 31. 10. 2026 | Success, ale pouze webové testy na nesloučené PR větvi. Žádné nové main buildy, APK/AAB ani fyzický Android test. |
+| OCCO Studio 4.7.1 | [Run 31844439451](https://github.com/badlsyms/occo-studio-v471-signed-20260814-235417/actions/runs/31844439451), main, 14. 8. 2026 | Success; doložené podepsané release APK 4.7.1 / code 471. Od poslední kontroly žádný nový build. |
+| OCCO Studio 4.6.0 | [Run 31790415967](https://github.com/badlsyms/occo-studio-v460-build-20260814-115954/actions/runs/31790415967), master, 14. 8. 2026 | Success; starší APK snapshot. |
+| OCCO MV-1 Android 2.3.1 | [Run 31763323107](https://github.com/badlsyms/occo-mv1-android-build-20260814-041816/actions/runs/31763323107), master, 14. 8. 2026 | Success; starší APK snapshot. |
+
+### Stav otevřených Pull Requests
+
+- `badlsyms/artefakt`: PR #1 „ARTEFAKT UPDATE CENTER v1“ zůstává open/draft, naposledy aktualizován 6. 11. 2026. [PR #1](https://github.com/badlsyms/artefakt/pull/1)
+- `badlsyms/mv1-lab`: PR #1–#10 zůstávají open a nesloučené. #1, #2 a #5 nejsou draft; #3, #4, #6, #7, #8, #9 a #10 jsou draft. Zejména MV-1 1.83 v PR #4, XYQ 0.18.1 v PR #9 a XYQ updater pilot v PR #10 nejsou vydané verze. [Otevřené PR](https://github.com/badlsyms/mv1-lab/pulls)
+- `badlsyms/artefaktlab`: PR #1 pro Můj Nucleus zůstává open, nesloučený. [PR #1](https://github.com/badlsyms/artefaktlab/pull/1)
+- `badlsyms/Frekvencni_Terapie_App`: PR #1 zůstává open, nesloučený. [PR #1](https://github.com/badlsyms/Frekvencni_Terapie_App/pull/1)
+
+### Produkční web a aktualizační katalog
+
+Přes webový přístup nebylo možné načíst:
+- https://artefakt-lab.wz.cz/
+- https://artefakt-lab.wz.cz/projects
+- https://artefakt-lab.wz.cz/updates/v1/catalog.json
+
+Výsledek je **NEOVĚŘENO / webový přístup nedostupný**; nelze z toho vyvozovat, že server je vypnutý. Veřejný katalog Update Center zůstává pouze v nesloučeném draft PR #1. Není doložen produkční podepsaný katalog, nasazení, aktivní updater ani aktualizace koncových zařízení.
+
+### Závěr a neověřené projekty
+
+- Proti 8. 11. nebyla zjištěna nová zdrojová verze, nový úspěšný main build, nový tag ani nový release.
+- MV-1 main zůstává 1.65 / code 165; XYQ main Android 0.14.0 / code 17 a web 0.10.0; TRACE 1.3-ci / code 13; OCCO Studio 4.7.1 / code 471; Frekvenční Terapie package 1.0.0.
+- Žádný nový AAB, produkční podpis, fyzický test nebo produkční deployment nebyl doložen.
+- Bez nové ověřitelné vazby na zdrojový repozitář nebo artefakt zůstávají: 0L8, PSYCHON 2/3, FOR+BEZ, ASHfall, CAMERA HUNT AR, sWEEDS, MAJTELAB, ARTEFAKT AGENT, OCB Device Manager, OCB EventOps, 4UD10, ASV BODECH, SCAFFXGRAM, RXTX, SPEQTR/HALO, IN MASTER-SAVE, WHIQ, Legorider, Music 2073, SLYPH LAB, REIN/TENT, 4BO Replay, SIGNAL BELOW, TROL8 Synthlab, EventLog, FIQ, OCCO+OpenDAW, ROK Včas, Triton Taktile Editor V1/V2 a QIP.
+- Žádné vydání, nasazení, mazání ani změny v jiném repozitáři nebyly provedeny.
+
+### Historie změn registru
+
+#### 2026-11-09 — ranní kontrola
+- Znovu načteno všech 10 repozitářů dostupných přes připojený GitHub účet; tři repozitáře zůstávají prázdné.
+- Potvrzeny poslední main commity; od předchozí kontroly se změnil pouze commit registru v `badlsyms/artefakt`, nikoli zdrojové repozitáře aplikací.
+- U 7 neprázdných repozitářů potvrzeny prázdné seznamy Git tag refs a GitHub Releases.
+- Znovu ověřeny relevantní GitHub Actions běhy; TRACE main build success, MV-1/XYQ main build z 19. 10. stále poslední úspěšný, XYQ updater a Update Center zůstávají jen PR CI kontroly.
+- Znovu ověřeny otevřené PR; všechny zůstávají nesloučené, žádná rozpracovaná verze nebyla označena za vydanou.
+- Produkční Webzdarma homepage, projects stránka a aktualizační katalog nebyly přes webový přístup dostupné; produkční stav zůstává NEOVĚŘENO.
+- Nebyla provedena žádná změna mimo tento soubor registru; nebylo provedeno vydání ani deployment.

@@ -2,7 +2,7 @@
 
 > Poslední kontrola: 10. 11. 2026, 06:16 Europe/Prague.
 > Rozsah: všech 10 repozitářů dostupných přes připojený GitHub účet; stránkování seznamu dokončeno.
-> Stav kontroly: ČÁSTEČNÁ — všech 10 dostupných repozitářů bylo zkontrolováno; produkční webové adresy nebyly dostupné přes webový přístup. Tag refs a Releases byly zkontrolovány u 7 neprázdných repozitářů; 3 repozitáře zůstávají prázdné.
+> Stav kontroly: ČÁSTEČNÁ — všech 10 dostupných repozitářů bylo zkontrolováno; 3 repozitáře jsou prázdné. Releases a tag refs byly dnes ověřeny u 3 veřejných aktivních repozitářů; soukromé refs/releases nebylo možné kompletně ověřit. Produkční webové adresy nebyly dostupné přes webový přístup.
 > Tento registr rozlišuje zdrojový kód, úspěšné sestavení, podepsaný artefakt, testování a skutečné produkční nasazení. Neověřený údaj se nikdy nedoplňuje odhadem.
 
 ## Pravidla evidence

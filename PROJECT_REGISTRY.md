@@ -1,6 +1,6 @@
 # ARTEFAKT-LAB — Centrální registr verzí
 
-> Poslední kontrola: 9. 11. 2026, 06:11 Europe/Prague.
+> Poslední kontrola: 10. 11. 2026, 06:16 Europe/Prague.
 > Rozsah: všech 10 repozitářů dostupných přes připojený GitHub účet; stránkování seznamu dokončeno.
 > Stav kontroly: ČÁSTEČNÁ — všech 10 dostupných repozitářů bylo zkontrolováno; produkční webové adresy nebyly dostupné přes webový přístup. Tag refs a Releases byly zkontrolovány u 7 neprázdných repozitářů; 3 repozitáře zůstávají prázdné.
 > Tento registr rozlišuje zdrojový kód, úspěšné sestavení, podepsaný artefakt, testování a skutečné produkční nasazení. Neověřený údaj se nikdy nedoplňuje odhadem.
@@ -373,3 +373,90 @@ Výsledek je **NEOVĚŘENO / webový přístup nedostupný**; nelze z toho vyvoz
 - Znovu ověřeny otevřené PR; všechny zůstávají nesloučené, žádná rozpracovaná verze nebyla označena za vydanou.
 - Produkční Webzdarma homepage, projects stránka a aktualizační katalog nebyly přes webový přístup dostupné; produkční stav zůstává NEOVĚŘENO.
 - Nebyla provedena žádná změna mimo tento soubor registru; nebylo provedeno vydání ani deployment.
+
+
+## Kontrola — 10. 11. 2026, 06:16 Europe/Prague
+
+### Souhrn výsledku
+
+**Nové produkční vydání ani změna main verze nebyly zjištěny.** Většina projektových repozitářů zůstala beze změny. Nový důležitý nález se týká rozpracované větve MV-1 Studio Pro 1.83: zdroj a automatizované testy prošly, ale GitHub Actions nedokázal uložit výstupní artefakty kvůli vyčerpané kvótě úložiště. Tato verze proto není dostupným instalačním balíčkem ani vydáním.
+
+### Inventura repozitářů
+
+- Znovu načten seznam instalovaných repozitářů pro vlastníka `badlsyms`; stránkování skončilo bez další stránky. Stále je dostupných 10 repozitářů.
+- Nejnovější commity hlavních zdrojových repozitářů se od posledního auditu nezměnily:
+  - `badlsyms/mv1-lab`: main `8fdad22371061908329cca816d36ae3e6a8adac6`, 19. 10. 2026. [Commit](https://github.com/badlsyms/mv1-lab/commit/8fdad22371061908329cca816d36ae3e6a8adac6)
+  - `badlsyms/artefaktlab`: main `26bc2efe334add10236e9c0d5b3194c88b0fdc30`, 6. 11. 2026. [Commit](https://github.com/badlsyms/artefaktlab/commit/26bc2efe334add10236e9c0d5b3194c88b0fdc30)
+  - `badlsyms/Frekvencni_Terapie_App`: main `6c9a1cccfcccc6607ed81f03fb80320bc89107c7`, 9. 9. 2025. [Commit](https://github.com/badlsyms/Frekvencni_Terapie_App/commit/6c9a1cccfcccc6607ed81f03fb80320bc89107c7)
+  - OCCO snapshot repozitáře zůstaly na svých dříve evidovaných commitech z 14. 8. 2026.
+- Tři repozitáře `badlsyms/QO`, `badlsyms/freqTherapy` a `badlsyms/freq` zůstávají prázdné; GitHub API při výpisu commitů vrací HTTP 409.
+- U veřejných repozitářů `artefakt`, `artefaktlab` a `Frekvencni_Terapie_App` jsou seznamy GitHub Releases prázdné. Namespace Git tagů vrací 404 (žádné tag refs). Soukromé repozitáře nebylo možné v tomto běhu kompletně zkontrolovat přes veřejné Git refs endpointy; jejich dřívější evidované údaje se nemění.
+
+### Nový nález — MV-1 Studio Pro 1.83, vývojová větev
+
+- PR #4 zůstává **open / draft / not merged**, cílová větev `main`, zdrojová větev `mv1-pro-175-build`. PR byl aktualizován 9. 11. 2026. [PR #4](https://github.com/badlsyms/mv1-lab/pull/4)
+- Poslední commit vývojové větve: `b1840dfa2952c8bce347d8c338a8c2c26870afb5`, 9. 11. 2026 07:32:32 UTC, „Add MIDI export boundary regression tests to MV1 Pro 1.83“. [Commit](https://github.com/badlsyms/mv1-lab/commit/b1840dfa2952c8bce347d8c338a8c2c26870afb5)
+- Gradle metadata na této větvi potvrzují `versionName 1.83`, `versionCode 183`, `applicationId cz.artefaktlab.mv1lab`; build types přidávají suffix `.propreview` pro debug i release variantu. [Gradle soubor na větvi](https://github.com/badlsyms/mv1-lab/blob/mv1-pro-175-build/android-project/app/build.gradle)
+- Workflow se jmenuje „MV1 Studio Pro 1.83 verified debug“ a spouští `assembleDebug`, `assembleDebugAndroidTest` a `assembleRelease`. [Workflow](https://github.com/badlsyms/mv1-lab/blob/mv1-pro-175-build/.github/workflows/mv1-pro-175.yml)
+- Dva běhy na této větvi skončily celkově failure:
+  - [Run 42579987090](https://github.com/badlsyms/mv1-lab/actions/runs/42579987090), 9. 11. 2026.
+  - [Run 42579989486](https://github.com/badlsyms/mv1-lab/actions/runs/42579989486), 9. 11. 2026.
+- V obou bězích prošly kroky „Verify source release“, unit tests, browser workstation tests, sestavení APK, Android startup and mixer tests a vytvoření souboru SHA256SUMS. Selhal až krok `actions/upload-artifact@v4`.
+- Log posledního běhu výslovně uvádí: „Artifact storage quota has been hit. Unable to upload any new artifacts.“ [Log jobu 129036180776](https://github.com/badlsyms/mv1-lab/actions/runs/42579989486)
+- Druhý běh má stejnou příčinu selhání uploadu: [Log jobu 129036172811](https://github.com/badlsyms/mv1-lab/actions/runs/42579987090).
+- Výsledek: **automatické testy a lokální sestavení v CI prošly, ale artefakt nebyl publikován do GitHub Actions.** SHA256SUMS vznikl na runneru, ale protože upload selhal, samotné APK ani soubor s kontrolními součty nejsou z tohoto běhu dostupné ke stažení a nezávislé kontrole.
+- V Gradle souboru této větve je pro release variantu `applicationIdSuffix '.propreview'`; v tomto souboru není doložena produkční signing konfigurace. Nelze tedy tvrdit, že jde o produkčně podepsané APK. AAB nebyl doložen.
+- Android emulator testy proběhly v CI, ale fyzická instalace na skutečném zařízení a test hardwaru MV-1 zůstávají NEOVĚŘENO.
+- Tato větev **nemění oficiální main verzi MV-1 1.65 / versionCode 165** a 1.83 se nesmí označit jako vydaná.
+
+### Aktuální stav hlavních workflow
+
+- `mv1-lab` main: poslední relevantní main build zůstává [run 39200811788](https://github.com/badlsyms/mv1-lab/actions/runs/39200811788), 19. 10. 2026, success; MV-1 1.65 a XYQ Android 0.14.0. Workflow vytvořilo unsigned APK. Pozdější běhy 9. 11. patří vývojové větvi MV-1 1.83, nikoli main.
+- `artefaktlab` main: poslední relevantní běh TRACE zůstává [run 42210300364](https://github.com/badlsyms/artefaktlab/actions/runs/42210300364), 6. 11. 2026, success; TRACE 1.3-ci / versionCode 13, debug-signed APK.
+- `artefakt`: poslední workflow běhy zůstávají PR kontroly Update Center [run 42210773201](https://github.com/badlsyms/artefakt/actions/runs/42210773201) a [run 42210772928](https://github.com/badlsyms/artefakt/actions/runs/42210772928), obě success na draft větvi. Nejde o main release ani produkční deployment.
+- `Frekvencni_Terapie_App`: poslední relevantní běh zůstává webová PR kontrola [run 41227310293](https://github.com/badlsyms/Frekvencni_Terapie_App/actions/runs/41227310293), 31. 10. 2026, success. Žádný nový APK/AAB nebo fyzický test.
+- OCCO Studio 4.7.1: poslední doložený podepsaný APK build zůstává [run 31844439451](https://github.com/badlsyms/occo-studio-v471-signed-20260814-235417/actions/runs/31844439451), 14. 8. 2026. Nový AAB ani produkční nasazení nebyly doloženy.
+
+### PR a vydání
+
+- MV-1 PR #4 je stále otevřený draft; 1.83 je kandidát ve vývoji, ne release.
+- XYQ PR #9 (0.18.1) zůstává otevřený draft; main verze zůstává Android 0.14.0 / code 17 a web manifest 0.10.0. [PR #9](https://github.com/badlsyms/mv1-lab/pull/9)
+- XYQ updater pilot PR #10 zůstává otevřený draft a není aktivním produkčním updaterem. [PR #10](https://github.com/badlsyms/mv1-lab/pull/10)
+- Update Center PR #1 zůstává otevřený draft; katalog stále není produkčně nasazen. [PR #1](https://github.com/badlsyms/artefakt/pull/1)
+- Žádný nový tag ani GitHub Release nebyl zjištěn ve veřejně ověřitelných repozitářích.
+
+### Produkční weby a katalog
+
+Pokus o načtení následujících adres přes webový přístup skončil chybou dostupnosti nástroje:
+- https://artefakt-lab.wz.cz/
+- https://artefakt-lab.wz.cz/updates/v1/catalog.json
+
+Výsledek zůstává **NEOVĚŘENO**; nelze z něj vyvodit, že Webzdarma server nefunguje. Produkční verze webů, Cloud Run runtime, skutečná nasazení a veřejný aktualizační katalog nejsou v tomto běhu potvrzeny.
+
+### Verze a projekty, které zůstávají neověřené
+
+- Main verze se nezměnily: MV-1 1.65 / code 165; XYQ Android 0.14.0 / code 17 a web 0.10.0; TRACE 1.3-ci / code 13; OCCO Studio 4.7.1 / code 471; Frekvenční Terapie package 1.0.0; Můj Nucleus package 2.2.0.
+- MV-1 1.83 / code 183 je pouze vývojová preview větev s neúspěšným uploadem artefaktů; nepočítá se jako úspěšný distribuční build.
+- Nové AAB, produkční podpisy pro MV-1/XYQ/TRACE, fyzické testy a produkční nasazení nebyly doloženy.
+- Bez ověřitelné vazby na zdrojový repozitář nebo vydávací artefakt zůstávají: 0L8, PSYCHON 2/3, FOR+BEZ, ASHfall, CAMERA HUNT AR, sWEEDS, MAJTELAB, ARTEFAKT AGENT, OCB Device Manager, OCB EventOps, 4UD10, ASV BODECH, SCAFFXGRAM, RXTX, SPEQTR/HALO, IN MASTER-SAVE, WHIQ, Legorider, Music 2073, SLYPH LAB, REIN/TENT, 4BO Replay, SIGNAL BELOW, TROL8 Synthlab, EventLog, FIQ, OCCO+OpenDAW, ROK Včas, Triton Taktile Editor V1/V2 a QIP.
+- OCCO Studio je doložen samostatným repo-derived projektem; jeho přiřazení k nejasným názvům OCB/OCCO v původní fotografii zůstává nepotvrzené.
+
+### Blokery
+
+1. GitHub Actions storage quota v `badlsyms/mv1-lab` blokuje publikaci nových artefaktů z MV-1 1.83; je nutné uvolnit kvótu nebo upravit retenci/artefaktový tok, než bude možné distribuční APK stáhnout.
+2. MV-1 1.83 používá preview applicationId suffix; před produkcí je nutné rozhodnout o finálním package identity a podpisové kontinuitě.
+3. Chybí produkční podepsaný katalog Update Center a jeho nasazení na HTTPS.
+4. U většiny projektů chybí doložené AAB, produkční podpis, fyzické testy a skutečné produkční nasazení.
+5. Produkční web a Cloud Run runtime zůstávají nedostupné pro ověření přes aktuální přístup.
+
+### Historie změn registru
+
+#### 2026-11-10 — ranní kontrola
+- Znovu načteno všech 10 dostupných repozitářů; stránkování dokončeno, tři repozitáře zůstávají prázdné.
+- Potvrzeno, že main verze zdrojových projektů se od 9. 11. nezměnily.
+- Nově zaznamenána vývojová verze MV-1 Studio Pro 1.83 / code 183 na větvi `mv1-pro-175-build`; PR #4 zůstává draft.
+- Dva CI běhy MV-1 1.83 9. 11. prošly testy a sestavením APK, ale selhaly při uploadu artefaktu kvůli vyčerpané GitHub Actions storage kvótě. Nebyl získán distribuovatelný artefakt.
+- Potvrzeno, že main MV-1 zůstává 1.65 / code 165 a poslední úspěšný main build je z 19. 10. 2026.
+- Ve veřejných repozitářích artefakt, artefaktlab a Frekvencni_Terapie_App jsou Releases prázdné a Git tag refs nebyly nalezeny; soukromé tagy/releases nebylo možné plně ověřit.
+- Produkční homepage a aktualizační katalog nebyly dostupné přes webový přístup; produkční stav zůstává NEOVĚŘENO.
+- Nebylo provedeno žádné vydání, deployment, mazání ani změna v jiném repozitáři.

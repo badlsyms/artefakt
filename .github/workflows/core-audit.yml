@@ -1,0 +1,23 @@
+name: Artefakt Core audit
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * *'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Validate project registry
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          data=json.loads(pathlib.Path('core/projects.json').read_text())
+          assert data['schema_version']==1
+          names=[p['name'] for p in data['projects']]
+          assert len(names)==len(set(names)) and names
+          assert all(p.get('status') and 'repo' in p for p in data['projects'])
+          print('Validated',len(names),'projects')
+          PY

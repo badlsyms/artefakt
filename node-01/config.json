@@ -1,0 +1,7 @@
+{
+  "interval_seconds": 900,
+  "urls": [
+    "https://artefakt-lab.wz.cz/",
+    "https://github.com/badlsyms/artefakt"
+  ]
+}

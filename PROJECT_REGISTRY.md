@@ -1,8 +1,8 @@
 # ARTEFAKT-LAB — Centrální registr verzí
 
-> Poslední kontrola: 11. 11. 2026, 06:15 Europe/Prague.
+> Poslední kontrola: 11. 11. 2026, 20:43 Europe/Prague.
 > Rozsah: všech 10 repozitářů dostupných přes připojený GitHub účet; stránkování seznamu dokončeno.
-> Stav kontroly: ČÁSTEČNÁ — všech 10 dostupných repozitářů bylo znovu zkontrolováno; 3 jsou prázdné. GitHub Releases jsou prázdné ve všech 10 repozitářích; tag refs nebyly nalezeny v 7 neprázdných repozitářích. Produkční webové adresy jsou přes dostupný webový přístup nedostupné a aktualizační katalog není v main větvi.
+> Stav kontroly: ČÁSTEČNÁ — dne 11. 11. 2026 ve 20:43 byla znovu načtena inventura 10 dostupných repozitářů a aktuální commit historie 5 hlavních zdrojových repozitářů. 3 repozitáře jsou prázdné. U čtyř ověřených repozitářů (mv1-lab, artefakt, artefaktlab, Frekvencni_Terapie_App) endpoint Releases vrátil prázdné pole; kompletní kontrola tagů všech 10 repozitářů nebyla dostupná. Produkční weby a fyzické testy zůstávají NEOVĚŘENO.
 > Tento registr rozlišuje zdrojový kód, úspěšné sestavení, podepsaný artefakt, testování a skutečné produkční nasazení. Neověřený údaj se nikdy nedoplňuje odhadem.
 
 ## Pravidla evidence
@@ -579,3 +579,57 @@ Bez ověřitelného kanonického zdrojového repozitáře nebo distribučního a
 - TRACE main zůstává 1.3-ci / code 13; OCCO Studio 4.7.1 zůstává poslední doložený podepsaný APK artefakt.
 - AAB, fyzické testy na skutečných zařízeních a produkční deployment většiny projektů zůstávají NEOVĚŘENO.
 - Nebylo provedeno žádné vydání, nasazení, mazání ani změny v jiných repozitářích.
+
+
+## Večerní kontrola a doplnění — 11. 11. 2026, 20:43 Europe/Prague
+
+### Rozsah a integrita kontroly
+
+- Znovu načten seznam repozitářů účtu `badlsyms`: **10/10 dostupných repozitářů**. Výpis obsahuje QO, freqTherapy, freq, Frekvencni_Terapie_App, artefakt, artefaktlab, occo-mv1-android-build-20260814-041816, occo-studio-v460-build-20260814-115954, occo-studio-v471-signed-20260814-235417 a mv1-lab.
+- Prázdné repozitáře dle GitHub metadat `size: 0`: QO, freqTherapy, freq. Zbývajících 7 repozitářů má obsah.
+- Kontrola commit historie:
+  - `badlsyms/mv1-lab`: poslední main commit zůstává `8fdad22371061908329cca816d36ae3e6a8adac6`, 19. 10. 2026. [Commit](https://github.com/badlsyms/mv1-lab/commit/8fdad22371061908329cca816d36ae3e6a8adac6)
+  - `badlsyms/artefakt`: aktuální main commit před tímto zápisem `39faed36cbc1f3c9b3078a27872757e336d316ee`, 11. 11. 2026 05:21:46 UTC. [Commit](https://github.com/badlsyms/artefakt/commit/39faed36cbc1f3c9b3078a27872757e336d316ee)
+  - `badlsyms/artefaktlab`: poslední main commit zůstává `26bc2efe334add10236e9c0d5b3194c88b0fdc30`, 6. 11. 2026. [Commit](https://github.com/badlsyms/artefaktlab/commit/26bc2efe334add10236e9c0d5b3194c88b0fdc30)
+  - `badlsyms/Frekvencni_Terapie_App`: main zůstává na počátečním commitu `6c9a1cccfcccc6607ed81f03fb80320bc89107c7`, 9. 9. 2025. [Commit](https://github.com/badlsyms/Frekvencni_Terapie_App/commit/6c9a1cccfcccc6607ed81f03fb80320bc89107c7)
+  - `badlsyms/occo-studio-v471-signed-20260814-235417`: main zůstává na commitu `2ab626ff1e2b3d00f2e2d9a93e733fb5ea3e50e9`, 14. 8. 2026. [Commit](https://github.com/badlsyms/occo-studio-v471-signed-20260814-235417/commit/2ab626ff1e2b3d00f2e2d9a93e733fb5ea3e50e9)
+- API `releases` vrátilo prázdné pole pro mv1-lab, artefakt, artefaktlab a Frekvencni_Terapie_App. [mv1-lab releases](https://github.com/badlsyms/mv1-lab/releases) · [artefakt releases](https://github.com/badlsyms/artefakt/releases) · [artefaktlab releases](https://github.com/badlsyms/artefaktlab/releases) · [Frekvencni_Terapie_App releases](https://github.com/badlsyms/Frekvencni_Terapie_App/releases). U ostatních repozitářů a pro kompletní tag refs nebylo možné v tomto běhu dokončit plné ověření; výsledek je NEOVĚŘENO, nikoli „žádné tagy“.
+- API Actions vrátilo nejnovější běh MV-1 1.83 jako run `42579989486`, 9. 11. 2026, branch `mv1-pro-175-build`, conclusion `failure`; nejedná se o main ani vydání. [Run](https://github.com/badlsyms/mv1-lab/actions/runs/42579989486)
+- API Actions pro `badlsyms/artefakt` vrátilo poslední katalogový běh `42210773201`, 6. 11. 2026, PR větev `feature/update-center-v1`, conclusion `success`; potvrzuje pouze PR validaci. [Run](https://github.com/badlsyms/artefakt/actions/runs/42210773201)
+- API Actions pro `badlsyms/artefaktlab` vrátilo běh MASTER LAB `42211163271` na větvi `masterlab-android-v2-1-build`, tedy nikoli main. [Run](https://github.com/badlsyms/artefaktlab/actions/runs/42211163271)
+
+### Aktuální verze a distribuční stav — beze změny proti posledním ověřeným metadatům
+
+| Projekt | Source version / identita | Nejnovější relevantní build | APK | AAB | Podpis / testy / produkce |
+|---|---|---|---|---|---|
+| MV-1 Studio Pro main | 1.65 / code 165 / `cz.artefaktlab.mv1lab` | main run 39200811788, 19. 10. 2026, success | 1.65 unsigned APK | NEOVĚŘENO | Produkční certifikát, fyzický test a nasazení NEOVĚŘENO |
+| MV-1 Pro preview | 1.83 / code 183, pouze PR větev a preview package suffix `.propreview` | Run 42579989486, 9. 11., failure při uploadu artefaktu; předchozí úspěšný archiv run 41585869639, 3. 11. | Debug APK a unsigned release APK v archivním CI ZIP; podepsané release APK NEOVĚŘENO | NEOVĚŘENO | 7 emulator testů / 0 failures v archivním reportu; fyzický test NEOVĚŘENO; produkce NEOVĚŘENO |
+| XYQ Android main | 0.14.0 / code 17 / `cz.artefakt.xyq` | Main run 39200811788, 19. 10., success | 0.14.0 unsigned APK | NEOVĚŘENO | Podpis, fyzický test a produkce NEOVĚŘENO |
+| XYQ Web | manifest 0.10.0 | Nejnovější produkční build NEOVĚŘENO | — | — | Produkční web verze a deployment NEOVĚŘENO |
+| TRACE | 1.3-ci / code 13 / `cz.artefaktlab.trace` | Main run 42210300364, 6. 11., success | 1.3-ci debug-signed APK | NEOVĚŘENO | Debug certifikát fingerprint doložen dřívějším CI logem; produkční podpis, fyzický test a nasazení NEOVĚŘENO |
+| OCCO Studio Android | 4.7.1 / code 471 / `cz.occo.mv1` | Run 31844439451, 14. 8., success | Podepsané release APK doloženo; APK SHA-256 `96a97f4e6d3070139b4373e00058a7acabf0df7415e18b0539310e2f2e0b9339`; certifikát SHA-256 `5ef0b002c93d4f54e764adf9491484b8b61e0214518b0009eb1f2b74297210f3` | NEOVĚŘENO | Fyzický test a skutečná produkční instalace NEOVĚŘENO |
+| Frekvenční Terapie | Electron package 1.0.0; Capacitor package 1.0.0; web manifest bez verze | PR run 41227310293, 31. 10., success | NEOVĚŘENO | NEOVĚŘENO | Webové testy na PR větvi; fyzický Android test a produkce NEOVĚŘENO |
+| Můj Nucleus | package 2.2.0 | Aktuální runtime build NEOVĚŘENO | NEOVĚŘENO | NEOVĚŘENO | Cloud Run běžící revize a produkční URL NEOVĚŘENO |
+| MASTER LAB | Verze 3.0.0 je pouze název debug artefaktu; main source version NEOVĚŘENO | Run 42211163271, 6. 11., success na ne-main větvi | Signed-debug artefakt | NEOVĚŘENO | Produkční podpis, fyzický test a nasazení NEOVĚŘENO |
+
+### Regrese, blokery a konkrétní postup nápravy
+
+1. **MV-1 1.83 — upload artefaktu blokuje GitHub Actions storage quota.** Build/test kroky aktuálního běhu prošly, ale upload skončil chybou `Artifact storage quota has been hit. Unable to upload any new artifacts.` [Run 42579989486](https://github.com/badlsyms/mv1-lab/actions/runs/42579989486). Starší úspěšný archiv 3. 11. obsahuje debug APK a unsigned release APK, nikoli podepsané release APK. Je proto nesprávné prezentovat 1.83 jako hotové podepsané vydání.
+2. **Náprava storage — vyžaduje kontrolu účtu a nastavení vlastníkem.** GitHub dokumentuje, že artefakty a GitHub Packages sdílejí úložný limit; GitHub Free uvádí 500 MB zahrnutého artefaktového úložiště. Využití se aktualizuje se zpožděním 6–12 hodin. Přesná dostupná kvóta a billing cycle tohoto účtu nebyly dostupné přes připojený GitHub konektor a zůstávají NEOVĚŘENO. [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions) · [GitHub Actions repository settings / retention](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository) · [Removing workflow artifacts](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/remove-workflow-artifacts).
+3. **Žádné artefakty nebyly mazány.** Uživatelské omezení zakazuje mazání; proto nebyla provedena žádná cleanup akce ani změna retention ve workflow nebo repository settings. Bezpečný další krok je, aby vlastník zkontroloval Settings → Billing and licensing → Usage, část Actions storage, aktuální cyklus a dostupnou kvótu. Poté může samostatně rozhodnout o retention pro budoucí buildy nebo odstranění konkrétních nepotřebných artefaktů. Smazání je nevratné a nebylo autorizováno.
+4. **Update Center není produkční služba.** PR #1 zůstává otevřený/draft, validace proběhla na PR větvi. Produkční katalog, veřejný klíč a nasazení na Webzdarma NEOVĚŘENO. [PR #1](https://github.com/badlsyms/artefakt/pull/1)
+5. **XYQ updater pilot je vypnutý.** Dokud není ověřen veřejný HTTPS katalog, důvěryhodný veřejný klíč a instalační tok, nelze automatické aktualizace označit za aktivní. [PR #10](https://github.com/badlsyms/mv1-lab/pull/10)
+6. **Rozdíly v dokumentaci:** MV-1 README uvádí 1.64 proti Gradle main 1.65; OCCO BUILD_CZ.txt uvádí 4.0.0 proti doloženému Gradle a podepsanému APK 4.7.1. Dokumentační opravy by vyžadovaly změny v jiných repozitářích a v tomto běhu nebyly provedeny.
+7. **Fyzické testy:** žádný fyzický test na reálném Android zařízení nebyl doložen pro MV-1, XYQ, TRACE, OCCO ani Frekvenční Terapie. Emulator test se nesmí vydávat za fyzický test.
+8. **Produkční weby:** `https://artefakt-lab.wz.cz/`, `/projects` a `/updates/v1/catalog.json` zůstávají NEOVĚŘENO. Nedostupnost nástroje není důkazem výpadku serveru.
+
+### Projekty bez ověřeného kanonického zdroje
+
+Zůstávají NEOVĚŘENO: 0L8, PSYCHON 2, PSYCHON 3, FOR+BEZ, ASHfall, CAMERA HUNT AR, sWEEDS, MAJTELAB, ARTEFAKT AGENT, OCB Device Manager, OCB EventOps, 4UD10, ASV BODECH, SCAFFXGRAM, RXTX, SPEQTR/HALO, IN MASTER-SAVE, WHIQ, Legorider, Music 2073, SLYPH LAB, REIN/TENT, 4BO Replay, SIGNAL BELOW, TROL8 Synthlab, EventLog, FIQ, OCCO + OpenDAW, ROK Včas, Triton Taktile Editor V1/V2 a QIP. U každého zůstává source version, build, web version, APK/AAB, podpis, testy a produkce NEOVĚŘENO, pokud není výše výslovně uveden doložený dílčí údaj.
+
+### Rozhodnutí tohoto běhu
+
+- Došlo pouze k aktualizaci tohoto centrálního souboru a jeho historie.
+- Nebyl proveden deployment, release, mazání artefaktů, změna nastavení GitHubu ani změna jiného repozitáře.
+- Nebyla změněna žádná verze aplikace a nebyl vytvořen nový distribuční balíček.
+- Celkový stav zůstává **ČÁSTEČNÝ**: autoritativní metadata a CI jsou doložena jen u části projektů; produkční weby, AAB a fyzické testy zůstávají ve většině případů NEOVĚŘENO.

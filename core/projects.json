@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-11",
+  "verification": "repository-discovery-only",
+  "projects": [
+    {
+      "name": "Artefakt Lab",
+      "repo": "badlsyms/artefakt",
+      "status": "discovered"
+    },
+    {
+      "name": "ArtefaktLab / Nucleus",
+      "repo": "badlsyms/artefaktlab",
+      "status": "discovered"
+    },
+    {
+      "name": "MV-1 LAB",
+      "repo": "badlsyms/mv1-lab",
+      "status": "discovered"
+    },
+    {
+      "name": "Frekvenční terapie",
+      "repo": "badlsyms/Frekvencni_Terapie_App",
+      "status": "discovered"
+    },
+    {
+      "name": "XYQ",
+      "repo": null,
+      "status": "source-not-yet-mapped"
+    },
+    {
+      "name": "0L8 Business OS",
+      "repo": null,
+      "status": "source-not-yet-mapped"
+    },
+    {
+      "name": "SCAFF X RAM",
+      "repo": null,
+      "status": "source-not-yet-mapped"
+    },
+    {
+      "name": "CPU-Q",
+      "repo": null,
+      "status": "source-not-yet-mapped"
+    },
+    {
+      "name": "Master Lab",
+      "repo": null,
+      "status": "source-not-yet-mapped"
+    },
+    {
+      "name": "Qey Board",
+      "repo": null,
+      "status": "source-not-yet-mapped"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101725">
+  <meta name="description" content="ARTEFAKT UPDATE CENTER — ověřené odkazy na aplikace a informace o aktualizacích.">
+  <title>ARTEFAKT UPDATE CENTER — ARTEFAKT-LAB</title>
+  <style>
+    :root{color-scheme:dark;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#0c1220;color:#e7eefb}
+    *{box-sizing:border-box}body{margin:0;line-height:1.5;background:radial-gradient(circle at 80% 0%,#1e3853,transparent 48%),#0c1220}
+    .wrap{max-width:1050px;padding:28px 22px 65px;margin:auto}a{color:#a2e7fb}a:hover{text-decoration:underline}
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;border-bottom:1px solid #314056;padding-bottom:22px}
+    .brand{font-weight:850;letter-spacing:.15em;color:white;text-decoration:none}
+    nav a{margin-left:18px;text-decoration:none}h1{font-size:clamp(2rem,6vw,4rem);line-height:1.08;margin:44px 0 12px}
+    .lead{max-width:730px;color:#c1d0e2;font-size:1.14rem}.badge{display:inline-block;background:#123c42;color:#81f0d7;border:1px solid #327f80;padding:5px 12px;border-radius:100px;font-size:.85rem}
+    .notice{border:1px solid #5b633c;background:#282d20;color:#f2e6a6;border-radius:15px;padding:19px;margin:28px 0}
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:20px}
+    .card{background:#142033;border:1px solid #293a52;border-radius:16px;padding:20px;min-height:180px;display:flex;flex-direction:column}
+    .card h3{margin:0 0 8px}.card p{margin:0 0 20px;color:#c1ccdd;flex:1}
+    .button{display:inline-block;background:#8be6f0;color:#07212c;font-weight:750;padding:10px 15px;text-decoration:none;border-radius:10px;align-self:flex-start}
+    .button:hover{background:white;text-decoration:none}.quiet{color:#9babc0;font-size:.92rem}
+    h2{margin-top:40px}footer{margin-top:55px;border-top:1px solid #314056;padding-top:25px}
+    :focus-visible{outline:3px solid #82e6f5;outline-offset:4px}
+    @media(max-width:540px){nav a{margin:0 15px 0 0}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="brand" href="/">ARTEFAKT-LAB</a>
+  <nav aria-label="Hlavní navigace">
+    <a href="/index.html">Úvod</a><a href="/aplikace.html">Aplikace</a><a href="/download.html">DOWN-LOAD</a>
+  </nav>
+</header>
+<main>
+  <p class="badge">ARTEFAKT UPDATE CENTER · Pilotní fáze</p>
+  <h1>Aktualizace na jednom místě.</h1>
+  <p class="lead">Vyber si aplikaci a pokračuj na její oficiální stránku. Automatické ověřování a nabídka aktualizací přímo v aplikaci se připravují a před veřejným spuštěním projdou bezpečnostním testováním.</p>
+  <div class="notice" role="status"><strong>Aktuální stav:</strong> Aktualizační klient XYQ prošel testovacím sestavením. Veřejná služba automatické aktualizace APK zatím není aktivní. Níže uvedené odkazy vedou na existující stránky produktů, nikoli na nově ověřená vydání.</div>
+  <h2>Android a webové aplikace</h2>
+  <div class="cards">
+    <article class="card"><h3>XYQ</h3><p>Poznámky, checklisty, kalendář. Pilot aktualizačního klienta.</p><a class="button" href="/products/xyq/download.html">Otevřít stahování ↗</a></article>
+    <article class="card"><h3>0L8 OS</h3><p>Firemní systém, směny, dokumenty a organizace práce.</p><a class="button" href="/products/0l8-platform/download.html">Otevřít stahování ↗</a></article>
+    <article class="card"><h3>SCAFF X RAM</h3><p>Návrhy lešení a správa projektů.</p><a class="button" href="/products/FrameScaffold_CAD/download.html">Otevřít stahování ↗</a></article>
+    <article class="card"><h3>AUD41</h3><p>Hudební pracovní prostředí.</p><a class="button" href="/products/aud41/download.html">Otevřít stahování ↗</a></article>
+    <article class="card"><h3>SPEQTR</h3><p>Audiovizuální studio a živé výstupy.</p><a class="button" href="/products/speqtr/download.html">Otevřít stahování ↗</a></article>
+    <article class="card"><h3>WhiQ</h3><p>Převod hudebních nápadů na MIDI.</p><a class="button" href="/products/whiq/download.html">Otevřít stahování ↗</a></article>
+    <article class="card"><h3>sWEEDS</h3><p>Hra s webovou i Android verzí.</p><a class="button" href="/products/sWEEDS/download.html">Otevřít stahování ↗</a></article>
+    <article class="card"><h3>PSYCHON 2</h3><p>Herní projekt SIGNAL BREACH.</p><a class="button" href="/products/psychon2/download.html">Otevřít stahování ↗</a></article>
+  </div>
+  <p class="quiet">Verze ani kompatibilita zde nejsou automaticky potvrzené. Přesné vydání a instalační soubor ověř na produktové stránce.</p>
+  <h2>Jak budou automatické aktualizace fungovat?</h2>
+  <p>Po nasazení podepsaného katalogu bude podporovaná aplikace sama bezpečně kontrolovat nové verze. APK z přímé distribuce musí projít kontrolou podpisu, velikosti a integrity; instalaci vždy zprostředkuje Android podle svých pravidel. Aplikace instalované z Google Play se budou aktualizovat podporovanou cestou Google Play.</p>
+  <p><a href="/download.html">Prohlédnout všechny dostupné aplikace →</a></p>
+</main>
+<footer><small>© ARTEFAKT-LAB · Bezpečnost je podmínkou vydání, ne volitelnou funkcí.</small></footer>
+</div>
+</body>
+</html>

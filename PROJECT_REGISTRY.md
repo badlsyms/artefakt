@@ -1,8 +1,8 @@
 # ARTEFAKT-LAB — Centrální registr verzí
 
-> Poslední kontrola: 12. 11. 2026, 06:46 Europe/Prague.
-> Rozsah: všech 10 repozitářů dostupných přes připojený GitHub účet; stránkování seznamu dokončeno.
-> Stav kontroly: ČÁSTEČNÁ — dne 12. 11. 2026 v 06:46 byla načtena inventura všech 10 dostupných repozitářů, commit historie všech 7 neprázdných repozitářů, tag refs a Releases. Tři repozitáře jsou prázdné; 7 neprázdných repozitářů nemá tag refs; Releases jsou prázdné ve všech 10 repozitářích. Byly zjištěny nové draft PR pro Artefakt Core a Node 01, bez běhů CI. Produkční weby a fyzické testy zůstávají NEOVĚŘENO.
+> Poslední kontrola: 13. 11. 2026, 06:23 Europe/Prague.
+> Rozsah: 11 repozitářů dostupných přes připojený GitHub účet; 8 obsahových a 3 prázdné. Nově zachycený soukromý repozitář: badlsyms/CPU-Q.
+> Stav kontroly: ČÁSTEČNÁ — dne 13. 11. 2026 v 06:23 byla znovu načtena inventura 11 repozitářů a ověřeny aktuální commity, vybrané workflow běhy, artefakty, Releases a manifesty. CPU-Q má tag a GitHub prerelease v0.9.0; Releases u ostatních 10 repozitářů jsou prázdné. Úplná enumerace tag refs ostatních repozitářů nebyla v tomto běhu dostupná. Nově ověřen TRACE signed-debug build na draft PR a dokumentační blokery Camera Hunt AR 10. Produkční weby a fyzické testy zůstávají NEOVĚŘENO.
 > Tento registr rozlišuje zdrojový kód, úspěšné sestavení, podepsaný artefakt, testování a skutečné produkční nasazení. Neověřený údaj se nikdy nedoplňuje odhadem.
 
 ## Pravidla evidence
@@ -27,7 +27,7 @@
 | PSYCHON 3 | 0.7.2 | NEOVĚŘENO | Bez přiřazeného zdrojového repozitáře a artefaktu |
 | FOR+BEZ | 1.0.0 | NEOVĚŘENO | Bez přiřazeného zdrojového repozitáře a artefaktu |
 | ASHfall | — | NEOVĚŘENO | Bez přiřazeného zdrojového repozitáře a artefaktu |
-| CAMERA HUNT AR | 10.0.0? | NEOVĚŘENO | Číslo z fotografie nejisté; bez přiřazeného repozitáře |
+| CAMERA HUNT AR | 10.0.0? | Source/build NEOVĚŘENO; v artefaktlab/main přibyl 13. 11. pouze integrační checklist Camera Hunt AR 10 | Checklist potvrzuje chybějící originální zdrojové soubory, neověřené Android package/keystore a chybějící autentické gameplay snímky; produkční web NEOVĚŘENO |
 | sWEEDS | 2.11 | NEOVĚŘENO | V dostupných repozitářích nebyl nalezen jednoznačný zdroj sWEEDS |
 | MAJTELAB / MAJTELAB? | 2.80 | NEOVĚŘENO | V repozitáři existuje samostatný artefakt MASTER LAB 3.0.0 debug; vazba na tento název není potvrzena |
 | XYQ + RXTX NEXT | 0.17 + 0.19? | XYQ main Android 0.14.0 / code 17; RXTX samostatně NEOVĚŘENO | Vyšší verze XYQ v PR jsou rozpracované, nikoli vydané |
@@ -36,7 +36,7 @@
 | OCB EventOps | 3.6.0 | NEOVĚŘENO | Název z fotografie ověřit; OCCO Studio nelze bez důkazu ztotožnit s tímto projektem |
 | 4UD10 | — | NEOVĚŘENO | Název/verze z fotografie nejasné |
 | ASV BODECH | 2.0.0 | NEOVĚŘENO | Název z fotografie nejasný |
-| TRACE (CAT) | 1.3.0 | Zdroj: 1.3-ci / versionCode 13; úspěšný debug APK build 6. 11. 2026 | APK je debug-signed, nikoli produkčně podepsané vydání; fyzický test a produkce NEOVĚŘENO |
+| TRACE (CAT) | 1.3.0 | Source 1.3-ci / code 13; main debug build 6. 11.; navíc úspěšný signed-debug APK build 12. 11. na draft PR #2 | Nový artefakt 421 615 B, exp. 10. 2. 2027; stále debug podpis, nikoli produkční vydání; AAB, cert SHA-256, fyzický test a produkce NEOVĚŘENO |
 | SCAFFXGRAM | 1.22 | NEOVĚŘENO | Název z fotografie nejasný |
 | RXTX | 0.3 | NEOVĚŘENO | Samostatný repozitář/verze nebyly v dostupných zdrojích potvrzeny |
 | SPEQTR + HALO | 1.1.0-1 | NEOVĚŘENO | Bez přiřazeného zdrojového repozitáře a artefaktu |
@@ -63,6 +63,7 @@
 | OCCO Studio Android (repo-derived; vazba na řádky OCB/OCCO nepotvrzena) | — | 4.7.1 / versionCode 471 / applicationId cz.occo.mv1 | Úspěšný podepsaný release APK build 14. 8. 2026; APK SHA-256 a certifikát doloženy v CI logu; AAB, fyzický test a produkční nasazení NEOVĚŘENO |
 | Můj Nucleus 2.0 (repo-derived) | — | package.json 2.2.0 | Zdrojová verze doložena; běh Cloud Run a skutečná produkční verze NEOVĚŘENO |
 | MASTER LAB (repo-derived; vazba na MAJTELAB nepotvrzena) | — | Artefakt pojmenován 3.0.0 Android signed debug na ne-main větvi | Debug artefakt existuje; zdrojová main verze, produkční podpis a produkce NEOVĚŘENO |
+| CPU-Q (nově objevený repozitář; původ: inventura badlsyms z 13. 11. 2026) | — | Main/tag v0.9.0 / versionCode 9; GitHub prerelease s debug APK. Větev cpuq-0.10.0 / code 10 má neúspěšný upload artefaktu | Web source index označuje v0.9.0, produkční web NEOVĚŘENO; AAB NEOVĚŘENO; debug cert fingerprint a obsah SHA256SUMS NEOVĚŘENO; fyzický test a produkční release NEOVĚŘENO |
 
 ## Detailní ověření — 7. 11. 2026
 
@@ -711,3 +712,68 @@ Od předchozí kontroly přibyly tyto otevřené **draft PR**. Nejsou součást�
 - Nebyl proveden deployment, release, mazání artefaktů, změna retention, změna nastavení GitHubu, změna Supabase ani změna jiného repozitáře. Zápis tohoto auditu je jediná provedená změna.
 - Stále NEOVĚŘENO zůstávají: 0L8, PSYCHON 2, PSYCHON 3, FOR+BEZ, ASHfall, CAMERA HUNT AR, sWEEDS, MAJTELAB, ARTEFAKT AGENT, OCB Device Manager, OCB EventOps, 4UD10, ASV BODECH, SCAFFXGRAM, RXTX, SPEQTR/HALO, IN MASTER-SAVE, WHIQ, Legorider, Music 2073, SLYPH LAB, REIN/TENT, 4BO Replay, SIGNAL BELOW, TROL8 Synthlab, EventLog, FIQ, OCCO + OpenDAW, ROK Včas, Triton Taktile Editor V1/V2 a QIP. U každého bez přiřazeného zdrojového repozitáře zůstávají source version, build, web version, APK/AAB, podpis, testy a produkce NEOVĚŘENO.
 - **Celkový stav auditu: ČÁSTEČNÝ.** GitHub inventura, commity, tag refs, releases, vybrané manifesty, workflow běhy a artefakty jsou ověřeny. Produkční weby, fyzické testy, většina AAB a skutečné instalace na uživatelských zařízeních doloženy nejsou.
+
+
+## Ranní kontrola — 13. 11. 2026, 06:23 Europe/Prague
+
+### Inventura připojených repozitářů
+
+- Aktuální seznam účtu `badlsyms` obsahuje **11 repozitářů**. Tři zůstávají prázdné: [QO](https://github.com/badlsyms/QO), [freqTherapy](https://github.com/badlsyms/freqTherapy) a [freq](https://github.com/badlsyms/freq).
+- Osm repozitářů obsahuje soubory: Frekvencni_Terapie_App, artefakt, artefaktlab, tři OCCO snapshot/build repozitáře, mv1-lab a nově zjištěný soukromý [CPU-Q](https://github.com/badlsyms/CPU-Q).
+- CPU-Q v předchozí inventuře z 12. 11. nebyl. Jeho původ v registru je proto výslovně označen jako nově objevený repozitář, nikoli jako domnělé ztotožnění s jiným projektem.
+- GitHub Releases: [CPU-Q v0.9.0](https://github.com/badlsyms/CPU-Q/releases/tag/v0.9.0) je jediný nově zjištěný release; je označen jako **prerelease**. Releases endpoint vrátil prázdné seznamy pro QO, freqTherapy, freq, Frekvencni_Terapie_App, artefakt, artefaktlab, occo-mv1-android-build-20260814-041816, occo-studio-v460-build-20260814-115954, occo-studio-v471-signed-20260814-235417 a mv1-lab.
+- Přesný Git tag [v0.9.0](https://github.com/badlsyms/CPU-Q/tree/v0.9.0) odkazuje na commit `1c42a0bbc2d913f47783647fd7324880cfb01dcc`. Úplná enumerace tag refs pro ostatní repozitáře nebyla v tomto běhu spolehlivě dostupná; jejich tag stav se proto dnes znovu neprohlašuje za prázdný.
+- Historické snapshoty OCCO zůstávají bez nových Releases: [OCCO 2.3.1 repo](https://github.com/badlsyms/occo-mv1-android-build-20260814-041816), [4.6.0 repo](https://github.com/badlsyms/occo-studio-v460-build-20260814-115954), [4.7.1 repo](https://github.com/badlsyms/occo-studio-v471-signed-20260814-235417). Jejich poslední úspěšné buildy z 14. 8. 2026 se nezměnily.
+
+### Nově ověřený projekt: CPU-Q — badlsyms/CPU-Q
+
+**Main source a tag**
+- Main commit `1c42a0bbc2d913f47783647fd7324880cfb01dcc`, 12. 11. 2026 07:44:51 UTC, zpráva „Publish verified APK directly to GitHub Releases“. [Commit](https://github.com/badlsyms/CPU-Q/commit/1c42a0bbc2d913f47783647fd7324880cfb01dcc)
+- Tag `v0.9.0` ukazuje na stejný commit; release je `prerelease=true`, nikoli stabilní produkční release. [Tag/release](https://github.com/badlsyms/CPU-Q/releases/tag/v0.9.0)
+- Android Gradle: applicationId/namespace `cz.artefaktlab.cpuq`, versionName `0.9.0`, versionCode `9`, minSdk 26, targetSdk 35. [Gradle manifest](https://github.com/badlsyms/CPU-Q/blob/main/android/app/build.gradle.kts)
+- Webový zdroj `index.html` zobrazuje `v0.9.0`; to potvrzuje pouze verzi v repozitáři, nikoli nasazení na veřejném serveru. [Web source](https://github.com/badlsyms/CPU-Q/blob/main/index.html)
+- Workflow sestavuje pouze debug APK, spouští `apksigner verify` a přikládá soubor SHA256SUMS. [Workflow](https://github.com/badlsyms/CPU-Q/blob/main/.github/workflows/android-debug.yml)
+
+**Latest successful build a distribuce**
+- Main run [43177535933](https://github.com/badlsyms/CPU-Q/actions/runs/43177535933) skončil 12. 11. 2026 v 07:46:18 UTC úspěšně. Kroky Gradle build, ověření podpisu a publikace GitHub Release prošly.
+- GitHub Release obsahuje `CPU-Q-0.9.0-debug.apk` (850 536 B) a `SHA256SUMS.txt`. APK je výslovně debug build; prerelease není stabilní produkční distribuce. [APK asset](https://github.com/badlsyms/CPU-Q/releases/download/v0.9.0/CPU-Q-0.9.0-debug.apk)
+- API Actions artifacts pro run 43177535933 vrátilo nula Actions artefaktů; distribuce je přes GitHub Release assets, nikoli přes samostatný Actions artifact.
+- Přesný APK SHA-256 nebylo možné přečíst z přiloženého textového assetu přes dostupný konektor; samotná přítomnost souboru SHA256SUMS nedokládá jeho obsah. APK SHA-256: **NEOVĚŘENO**. Certifikátový fingerprint SHA-256: **NEOVĚŘENO**; CI potvrzuje úspěšné `apksigner verify`, ale dostupná metadata neobsahují fingerprint.
+- AAB: **NEOVĚŘENO / workflow jej nevytváří**. Samostatné unit/UI testy: workflow je neobsahuje. Fyzický instalační test: **NEOVĚŘENO**; README výslovně uvádí, že fyzický instalační test ani release podpis nejsou k dispozici. Produkčně nasazená verze: **NEOVĚŘENO**.
+
+**Rozpracovaná verze 0.10.0 — neplést s vydáním**
+- Větev `cpuq-0.10.0` má Gradle versionName `0.10.0`, versionCode `10`. [Branch manifest](https://github.com/badlsyms/CPU-Q/blob/cpuq-0.10.0/android/app/build.gradle.kts)
+- Run [43196309894](https://github.com/badlsyms/CPU-Q/actions/runs/43196309894) z 12. 11. 2026 skončil failure při `actions/upload-artifact@v4`; Gradle build a ověření podpisu předtím prošly, krok publikace byl přeskočen. Tato větev proto není úspěšně distribuovaná verze a nemá doložený release/tag.
+- CPU-Q 0.10.0 je pracovní zdrojová verze na ne-main větvi, nikoli vydání.
+
+### TRACE — nový podepsaný debug artefakt, nikoli produkční release
+
+- Repozitář `badlsyms/artefaktlab` má nový main commit `162c346399973154c93098b15d0e722ee609cf50` z 13. 11. 2026 04:56:21 UTC. Commit přidává pouze dokument `releases/camerahunt10/INTEGRATION_STATUS.md`; nejde o nový TRACE release. [Commit](https://github.com/badlsyms/artefaktlab/commit/162c346399973154c93098b15d0e722ee609cf50)
+- TRACE PR #2 „Apply Artefakt Lab typography to TRACE“ zůstává otevřený draft na větvi `trace/artefakt-typography`. [PR #2](https://github.com/badlsyms/artefaktlab/pull/2)
+- Zdroj na této větvi: applicationId `cz.artefaktlab.trace`, versionName `1.3-ci`, versionCode `13`, minSdk 26, targetSdk 35. [TRACE Gradle](https://github.com/badlsyms/artefaktlab/blob/trace/artefakt-typography/TRACE/app/build.gradle)
+- Run [43233802088](https://github.com/badlsyms/artefaktlab/actions/runs/43233802088) z 12. 11. 2026 14:06:36 UTC skončil success. Workflow sestavil debug APK, ověřil podpis přes apksigner a uploadoval artefakt [TRACE-1.3-signed-debug-APK](https://github.com/badlsyms/artefaktlab/actions/runs/43233802088/artifacts/13950724161), 421 615 B, expirace 10. 2. 2027.
+- Jde o **signed-debug APK** na draft PR větvi, nikoli release-signed produkční balíček. APK version 1.3-ci / code 13; AAB NEOVĚŘENO; certifikátový SHA-256 NEOVĚŘENO; samostatné unit/UI testy v tomto workflow NEOVĚŘENO; fyzický test a produkční deployment NEOVĚŘENO. Main verze zůstává beze změny.
+
+### Camera Hunt AR 10 — nová integrační evidence, bez hotového vydání
+
+- Dokument [INTEGRATION_STATUS.md](https://github.com/badlsyms/artefaktlab/blob/main/releases/camerahunt10/INTEGRATION_STATUS.md) je v main od 13. 11. 2026. Uvádí odkaz na existující webovou stránku [Camera Hunt AR](https://artefakt-lab.wz.cz/products/camerahunt-ar/index.html) a video [YouTube](https://youtu.be/Wq-KUqvYRo4).
+- Lokálně jsou doloženy koncepční ikona 512×512, feature graphic 1024×500, volitelné Web Audio SFX a návrh CZ store listingu. Dokument výslovně uvádí, že originální herní zdrojové soubory nejsou v dodaném release ZIPu.
+- Android projekt/package ID, keystore nebo Play App Signing nejsou ověřeny; autentické gameplay screenshoty a snímky zdrojového videa chybí; Data Safety a permission disclosures vyžadují kontrolu skutečné aplikace.
+- Source version, web version, APK/AAB version/versionCode, podpisový certifikát, testy, fyzická instalace a produkční deployment: **NEOVĚŘENO**. Samotný integrační dokument není release a jeho obsah nesmí být nasazen přes živou verzi bez kompletního zdrojového buildu a validace.
+
+### Ostatní projekty a stav proti minulé kontrole
+
+- **MV-1 Studio Pro:** main zůstává 1.65 / code 165. Nejnovější run 1.83 z 9. 11. je stále failure při uploadu artefaktu; nebyl nalezen novější běh. [Run 42579989486](https://github.com/badlsyms/mv1-lab/actions/runs/42579989486). 1.83 zůstává preview/PR, nikoli vydání.
+- **XYQ:** main source zůstává 0.14.0 / code 17; web source 0.10.0. PR #9 0.18.1 a PR #10 updater pilot zůstávají rozpracované. Main CI používá preview package suffix; produkční APK/AAB a fyzický test NEOVĚŘENO.
+- **ARTEFAKT UPDATE CENTER:** PR #1 zůstává draft; poslední úspěšné validační běhy jsou z 6. 11. na feature větvi. Veřejný katalog a nasazení NEOVĚŘENO.
+- **OCCO Studio:** poslední doložený 4.7.1 signed release APK build je stále run 31844439451 z 14. 8.; release endpoint v repozitáři je prázdný, takže artefakt CI nelze zaměňovat za GitHub Release. Historická expirace artefaktu uvedená v předchozím auditu již nastala; aktuální dostupnost původního artefaktu nebyla znovu ověřena. AAB, fyzická instalace a produkční nasazení NEOVĚŘENO.
+- **Frekvenční Terapie:** main stále na počátečním commitu z 9. 9. 2025; úspěšné webové kontroly z 31. 10. jsou na otevřené PR větvi. Produkční web a Android artefakty NEOVĚŘENO.
+- **Můj Nucleus / MASTER LAB:** poslední doložené zdrojové/build údaje zůstávají historické; aktuální běžící produkční revize a fyzické testy NEOVĚŘENO.
+
+### Produkční weby, blokery a neověřené projekty
+
+- Pokus o načtení [artefakt-lab.wz.cz](https://artefakt-lab.wz.cz/), [Camera Hunt AR produkční stránky](https://artefakt-lab.wz.cz/products/camerahunt-ar/index.html) a [aktualizačního katalogu](https://artefakt-lab.wz.cz/updates/v1/catalog.json) skončil chybou nedostupnosti zdroje přes webový přístup. To **není důkaz výpadku serveru**; HTTP/TLS stav, deployed commit, web version a obsah katalogu zůstávají NEOVĚŘENO.
+- Hlavní nové distribuční blokery: CPU-Q 0.10.0 — upload artefaktu selhal; TRACE — pouze debug-signed APK na draft PR; Camera Hunt AR 10 — chybí originální zdrojové soubory a ověřený Android signing setup; MV-1 1.83 — dříve doložený upload failure kvůli Actions storage quota.
+- Stále NEOVĚŘENO zůstávají: 0L8, PSYCHON 2, PSYCHON 3, FOR+BEZ, ASHfall, CAMERA HUNT AR (samotný herní zdroj a release), sWEEDS, MAJTELAB, ARTEFAKT AGENT, OCB Device Manager, OCB EventOps, 4UD10, ASV BODECH, SCAFFXGRAM, RXTX, SPEQTR/HALO, IN MASTER-SAVE, WHIQ, Legorider, Music 2073, SLYPH LAB, REIN/TENT, 4BO Replay, SIGNAL BELOW, TROL8 Synthlab, EventLog, FIQ, OCCO + OpenDAW, ROK Včas, Triton Taktile Editor V1/V2 a QIP. CPU-Q je nově identifikovaný projekt s doloženým prerelease 0.9.0; jeho produkční stav zůstává NEOVĚŘENO.
+- **Celkový stav auditu: ČÁSTEČNÝ.** Repozitářová inventura, vybrané commity, Releases, tag CPU-Q, Gradle metadata a nové CI běhy jsou doloženy. U většiny projektů zůstávají AAB, produkční podpis, fyzické testy, veřejné weby a skutečná instalace NEOVĚŘENO.
+- Provedená změna: pouze tento soubor `badlsyms/artefakt/PROJECT_REGISTRY.md`. Nebylo provedeno žádné nasazení, vydání, mazání artefaktů, změna retention, změna nastavení GitHubu ani změna jiného repozitáře.

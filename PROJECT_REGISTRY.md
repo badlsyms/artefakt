@@ -1,8 +1,8 @@
 # ARTEFAKT-LAB — Centrální registr verzí
 
-> Poslední kontrola: 13. 11. 2026, 06:23 Europe/Prague.
-> Rozsah: 11 repozitářů dostupných přes připojený GitHub účet; 8 obsahových a 3 prázdné. Nově zachycený soukromý repozitář: badlsyms/CPU-Q.
-> Stav kontroly: ČÁSTEČNÁ — dne 13. 11. 2026 v 06:23 byla znovu načtena inventura 11 repozitářů a ověřeny aktuální commity, vybrané workflow běhy, artefakty, Releases a manifesty. CPU-Q má tag a GitHub prerelease v0.9.0; Releases u ostatních 10 repozitářů jsou prázdné. Úplná enumerace tag refs ostatních repozitářů nebyla v tomto běhu dostupná. Nově ověřen TRACE signed-debug build na draft PR a dokumentační blokery Camera Hunt AR 10. Produkční weby a fyzické testy zůstávají NEOVĚŘENO.
+> Poslední kontrola: 14. 11. 2026, 06:10 Europe/Prague.
+> Rozsah: 13 repozitářů dostupných přes připojený GitHub účet; 9 obsahových a 4 prázdné. Nově zachycené repozitáře od předchozí kontroly: badlsyms/Artefakt-spacelab (prázdný) a badlsyms/Artefakt-spacemap (obsahový Android projekt).
+> Stav kontroly: ČÁSTEČNÁ — dne 14. 11. 2026 v 06:10 byla načtena inventura 13 repozitářů; 9 obsahových a 4 prázdné. Nově zjištěn Artefakt-spacemap 0.1.1 s úspěšným main CI během a archivovaným debug APK + unsigned AAB; CPU-Q 0.9.0 zůstává prerelease. Produkční weby a fyzické testy zůstávají NEOVĚŘENO.
 > Tento registr rozlišuje zdrojový kód, úspěšné sestavení, podepsaný artefakt, testování a skutečné produkční nasazení. Neověřený údaj se nikdy nedoplňuje odhadem.
 
 ## Pravidla evidence
@@ -777,3 +777,71 @@ Od předchozí kontroly přibyly tyto otevřené **draft PR**. Nejsou součást�
 - Stále NEOVĚŘENO zůstávají: 0L8, PSYCHON 2, PSYCHON 3, FOR+BEZ, ASHfall, CAMERA HUNT AR (samotný herní zdroj a release), sWEEDS, MAJTELAB, ARTEFAKT AGENT, OCB Device Manager, OCB EventOps, 4UD10, ASV BODECH, SCAFFXGRAM, RXTX, SPEQTR/HALO, IN MASTER-SAVE, WHIQ, Legorider, Music 2073, SLYPH LAB, REIN/TENT, 4BO Replay, SIGNAL BELOW, TROL8 Synthlab, EventLog, FIQ, OCCO + OpenDAW, ROK Včas, Triton Taktile Editor V1/V2 a QIP. CPU-Q je nově identifikovaný projekt s doloženým prerelease 0.9.0; jeho produkční stav zůstává NEOVĚŘENO.
 - **Celkový stav auditu: ČÁSTEČNÝ.** Repozitářová inventura, vybrané commity, Releases, tag CPU-Q, Gradle metadata a nové CI běhy jsou doloženy. U většiny projektů zůstávají AAB, produkční podpis, fyzické testy, veřejné weby a skutečná instalace NEOVĚŘENO.
 - Provedená změna: pouze tento soubor `badlsyms/artefakt/PROJECT_REGISTRY.md`. Nebylo provedeno žádné nasazení, vydání, mazání artefaktů, změna retention, změna nastavení GitHubu ani změna jiného repozitáře.
+
+
+## Ranní kontrola — 14. 11. 2026, 06:10 Europe/Prague
+
+### Inventura připojených GitHub repozitářů
+
+Dnešní výpis účtu `badlsyms` obsahoval **13 repozitářů**. Metadata GitHubu uváděla 9 repozitářů s obsahem a 4 prázdné:
+
+- Prázdné (size 0): [QO](https://github.com/badlsyms/QO), [freqTherapy](https://github.com/badlsyms/freqTherapy), [freq](https://github.com/badlsyms/freq) a nově [Artefakt-spacelab](https://github.com/badlsyms/Artefakt-spacelab).
+- Obsahové: [Frekvencni_Terapie_App](https://github.com/badlsyms/Frekvencni_Terapie_App), [artefakt](https://github.com/badlsyms/artefakt), [artefaktlab](https://github.com/badlsyms/artefaktlab), [occo-mv1-android-build-20260814-041816](https://github.com/badlsyms/occo-mv1-android-build-20260814-041816), [occo-studio-v460-build-20260814-115954](https://github.com/badlsyms/occo-studio-v460-build-20260814-115954), [occo-studio-v471-signed-20260814-235417](https://github.com/badlsyms/occo-studio-v471-signed-20260814-235417), [mv1-lab](https://github.com/badlsyms/mv1-lab), [CPU-Q](https://github.com/badlsyms/CPU-Q) a nově [Artefakt-spacemap](https://github.com/badlsyms/Artefakt-spacemap).
+
+### Nový projekt: Artefakt-spacemap
+
+**Původ:** nově objevený samostatný repozitář `badlsyms/Artefakt-spacemap`, nikoli odvozená domněnka z názvu projektu.
+
+- Nejnovější main commit: `cbf288509b3c4acccc82511d35e4341401df1935`, 13. 11. 2026 07:12:45 UTC. [Commit](https://github.com/badlsyms/Artefakt-spacemap/commit/cbf288509b3c4acccc82511d35e4341401df1935)
+- Android manifest `app/build.gradle.kts`: `applicationId = cz.artefaktlab.spacemap`, `versionName = 0.1.1`, `versionCode = 2`, compileSdk 35, minSdk 26, targetSdk 35. [Manifest](https://github.com/badlsyms/Artefakt-spacemap/blob/main/app/build.gradle.kts)
+- Root Gradle plugin: Android Gradle Plugin 8.7.3. [Root build.gradle.kts](https://github.com/badlsyms/Artefakt-spacemap/blob/main/build.gradle.kts)
+- Nejnovější main workflow run: **43384108047**, 13. 11. 2026 07:12:47 UTC, conclusion `success`. [GitHub Actions run](https://github.com/badlsyms/Artefakt-spacemap/actions/runs/43384108047)
+- Job `android` dokončil kroky kontrola Android SDK, sestavení debug APK a release AAB a upload artefaktu úspěšně. Workflow krok je výslovně označen `Build debug APK and release AAB`; výstupní AAB je proto **unsigned**, nikoli produkčně podepsaný.
+- GitHub Actions artifact `SpaceMap-debug-APK-and-unsigned-AAB`, ID `14017538681`, velikost 24 963 B, vytvořen 13. 11. 2026 07:13:34 UTC, expirace 11. 2. 2027 07:12:48 UTC, SHA-256 digest ZIP artefaktu `a685aaf15b1f9b1a4472248a98ce12a71280efb82152ae09b4995d62e5343809`. [Artifact metadata](https://github.com/badlsyms/Artefakt-spacemap/actions/runs/43384108047)
+- Předchozí tři běhy 43381141635, 43381142350 a 43381166803 skončily chybou; následující runy 43382238747 a 43384108047 byly úspěšné. [Run 43382238747](https://github.com/badlsyms/Artefakt-spacemap/actions/runs/43382238747) · [Run 43381166803](https://github.com/badlsyms/Artefakt-spacemap/actions/runs/43381166803)
+- APK interní metadata nebyla z binárního souboru samostatně přečtena; shoda APK versionName/versionCode s Gradle manifestem proto zůstává NEOVĚŘENO. Samotný artifact ZIP digest není APK SHA-256.
+- AAB: workflow deklaruje release AAB, ale artifact název potvrzuje unsigned AAB; vnitřní metadata AAB nebyla stažena a přečtena. AAB package/version údaje NEOVĚŘENO.
+- Certifikát SHA-256 a release podpis: NEOVĚŘENO. Fyzická instalace/test na Android zařízení: NEOVĚŘENO. GitHub Release/tag: v tomto běhu nebyl potvrzen žádný release; endpoint Releases vrátil prázdné pole. Tag endpoint nebylo možné načíst kvůli chybě validace URL, proto tagy NEOVĚŘENO. Produkční nasazení a veřejná web verze: NEOVĚŘENO.
+- Tři neúspěšné běhy před dvěma úspěšnými jsou zaznamenány jako build regrese, nikoli jako vydané verze. Nejnovější main build je úspěšný, ale pouze CI debug/unsigned artefakt.
+
+### CPU-Q — potvrzení stavu prerelease a neúspěšné 0.10.0
+
+- Release `v0.9.0` byl publikován 12. 11. 2026 07:46 UTC jako **prerelease**, s assety `CPU-Q-0.9.0-debug.apk` (850 536 B) a `SHA256SUMS.txt` (88 B). [Release v0.9.0](https://github.com/badlsyms/CPU-Q/releases/tag/v0.9.0)
+- Main commit `1c42a0bbc2d913f47783647fd7324880cfb01dcc`, 12. 11. 2026 07:44:51 UTC. [Commit](https://github.com/badlsyms/CPU-Q/commit/1c42a0bbc2d913f47783647fd7324880cfb01dcc)
+- Main CI run `43177535933` skončil success. [Run](https://github.com/badlsyms/CPU-Q/actions/runs/43177535933)
+- Větev `cpuq-0.10.0`, run `43196309894`, skončila failure; 0.10.0 tedy není doložené vydání. [Run 0.10.0](https://github.com/badlsyms/CPU-Q/actions/runs/43196309894)
+- Produkční release, AAB, fyzické testy a skutečné produkční nasazení CPU-Q zůstávají NEOVĚŘENO.
+
+### Stav hlavních zdrojových repozitářů — latest commit kontrola
+
+| Repozitář | Nejnovější main/default-branch commit zjištěný 14. 11. | Význam |
+|---|---|---|
+| `Frekvencni_Terapie_App` | `6c9a1cccfcccc6607ed81f03fb80320bc89107c7`, 9. 9. 2025 | Bez nového commitu; zdrojová verze a produkce NEOVĚŘENO |
+| `artefakt` | `d097203a032945362fedc849421ee1a1880dd528`, 13. 11. 2026 | Předchozí ranní registr; tento dnešní zápis navazuje |
+| `artefaktlab` | `162c346399973154c93098b15d0e722ee609cf50`, 13. 11. 2026 | Dokumentační commit Camera Hunt AR 10; nikoli release |
+| `occo-mv1-android-build-20260814-041816` | `5131617aec2202c159321723e550cd22b090b991`, 14. 8. 2026 | Bez nového commitu |
+| `occo-studio-v460-build-20260814-115954` | `6463ecf1d84fb72760b46266ef021d5824e775ba`, 14. 8. 2026 | Bez nového commitu |
+| `occo-studio-v471-signed-20260814-235417` | `2ab626ff1e2b3d00f2e2d9a93e733fb5ea3e50e9`, 14. 8. 2026 | Bez nového commitu |
+| `mv1-lab` | `8fdad22371061908329cca816d36ae3e6a8adac6`, 19. 10. 2026 | Main beze změny; nejnovější načtené workflow zůstává neúspěšný preview upload 1.83 z 9. 11. |
+| `CPU-Q` | `1c42a0bbc2d913f47783647fd7324880cfb01dcc`, 12. 11. 2026 | Main 0.9.0 prerelease evidence |
+| `Artefakt-spacemap` | `cbf288509b3c4acccc82511d35e4341401df1935`, 13. 11. 2026 | Nový Android projekt; CI 0.1.1 debug APK + unsigned AAB |
+
+### Tagy, Releases, weby a testování
+
+- CPU-Q v0.9.0 je potvrzený prerelease; nesmí být označen za stabilní produkční release.
+- Artefakt-spacemap nemá v načteném Releases endpointu žádný release. Tagy nebylo možné načíst kvůli chybě validace endpointu; jejich absence proto není potvrzena.
+- U ostatních repozitářů nebyla v tomto běhu provedena úplná enumerace všech tagů, releases, workflow runs a artefaktů. Dosavadní hodnoty se zachovávají a nové údaje jsou NEOVĚŘENO, pokud nejsou výslovně doloženy výše.
+- Produkční weby `artefakt-lab.wz.cz`, veřejné stránky projektů a aktualizační katalog nebyly v tomto běhu dostupné přes ověřovací přístup. HTTP/TLS stav, nasazený commit, web version a katalog zůstávají NEOVĚŘENO.
+- Fyzické testy nebyly doloženy pro žádný z nově zkontrolovaných Android artefaktů. CI build a workflow úspěch nejsou fyzický test.
+- Nové soukromé repozitáře a nové veřejné repozitáře byly evidovány podle přesných názvů vrácených GitHub inventurou; žádné projekty nebyly sloučeny jen na základě podobného názvu.
+
+### Neověřené projekty a limity
+
+Dosavadní seznam neověřených projektů zůstává v platnosti: 0L8, PSYCHON 2, PSYCHON 3, FOR+BEZ, ASHfall, CAMERA HUNT AR (herní zdroj a vydání), sWEEDS, MAJTELAB, ARTEFAKT AGENT, OCB Device Manager, OCB EventOps, 4UD10, ASV BODECH, SCAFFXGRAM, RXTX, SPEQTR/HALO, IN MASTER-SAVE, WHIQ, Legorider, Music 2073, SLYPH LAB, REIN/TENT, 4BO Replay, SIGNAL BELOW, TROL8 Synthlab, EventLog, FIQ, OCCO + OpenDAW, ROK Včas, Triton Taktile Editor V1/V2 a QIP. Artefakt-spacemap je nyní nově identifikován se zdrojovou verzí 0.1.1 a úspěšným CI, ale jeho produkční release zůstává NEOVĚŘENO. Artefakt-spacelab je prázdný repozitář, projektový obsah NEOVĚŘENO.
+
+### Rozsah provedených změn
+
+- Změněn pouze `badlsyms/artefakt/PROJECT_REGISTRY.md`.
+- Nebyl proveden žádný deployment, release, merge PR, změna jiného repozitáře, mazání artefaktů, změna retention ani změna GitHub settings.
+- Nebyly zapsány secrets, tokeny, hesla ani soukromé klíče.
+- Celkový audit zůstává **ČÁSTEČNÝ**; důkazy pro Artefakt-spacemap jsou nově přidány a odděleny od produkčního stavu.
